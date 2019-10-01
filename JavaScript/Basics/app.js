@@ -44,3 +44,8 @@ func(10, 20);
 }
 fun(10, 20, 30);*/ // This will give error as c is not defined.
 
+function rest(...a){
+    console.log(a);
+    console.log(a.length);
+}
+rest(10, 20, 30);
