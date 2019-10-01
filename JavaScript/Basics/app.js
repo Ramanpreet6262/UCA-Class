@@ -26,3 +26,21 @@ console.log(a);
 // Hoisting is if we have declared the function after calling it, then the declaration will move up
 // close to where function was called first.
 
+
+//FUNCTIONS
+
+function abc(a, b, c){
+    console.log(a + " " + b + " " + c);
+}
+abc(10, 20, 30);
+
+function func(a, b, c = 30){
+    console.log(a + " " + b + " " + c);
+}
+func(10, 20);
+
+/*function fun(a, b){
+    console.log(a + " " + b + " " + c);
+}
+fun(10, 20, 30);*/ // This will give error as c is not defined.
+
