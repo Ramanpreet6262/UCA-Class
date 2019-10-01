@@ -51,3 +51,18 @@ function rest(...a){
 rest(10, 20, 30);
 // Rest operator it will merge various elements into an array
 
+var hi = function hello(){
+    console.log('hello');
+}
+hi();
+// Anonymous function
+
+var kiddan = (a=30, b=50) => {
+    console.log(a+b);
+}
+kiddan(); //Arrow functions
+
+var ohwow = value => {
+    console.log(value/2);
+}
+ohwow(70); // Arrow function with single argument
