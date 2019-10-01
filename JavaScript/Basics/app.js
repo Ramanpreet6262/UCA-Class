@@ -49,3 +49,5 @@ function rest(...a){
     console.log(a.length);
 }
 rest(10, 20, 30);
+// Rest operator it will merge various elements into an array
+
