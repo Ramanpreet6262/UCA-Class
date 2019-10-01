@@ -24,5 +24,5 @@ console.log(a);
 // So 'let' has local scope while 'var' has global scope
 
 // Hoisting is if we have declared the function after calling it, then the declaration will move up
-// close to where function wa called first.
+// close to where function was called first.
 
