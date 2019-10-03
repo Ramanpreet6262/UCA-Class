@@ -104,3 +104,19 @@ let obj1 = {
 console.log(obj1.greet());
 console.log(obj1.interests[0]);
 console.log(obj1.address.sector);
+
+// object instance
+
+let obj2 = new person("abc");
+let obj3 = new person("xyz");
+function person(name)
+{
+    this.name = name;
+    this.greet = function()                           // using this function as a constructor
+    {
+        return "Hello " + this.name;
+    }
+}
+console.log(obj2.name);
+console.log(obj3.greet());
+
