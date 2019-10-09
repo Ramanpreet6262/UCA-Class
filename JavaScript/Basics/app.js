@@ -120,3 +120,33 @@ function person(name)
 console.log(obj2.name);
 console.log(obj3.greet());
 
+
+// Problematic synchronous code
+// console.log('before');
+// console.log(funnc());
+// console.log('after');
+
+// function funnc(){
+//   setTimeout(()=>{return 1;}, 2000);
+// }
+
+
+// console.log('before');
+// funnct((x)=>{console.log(x);});
+// console.log('after');
+
+// function funnct(hi){
+//   setTimeout(()=>{hi(1);}, 2000);
+// }
+
+
+console.log('before');
+funnct((x)=>{
+  console.log(x);
+  console.log('after');
+});
+
+function funnct(hi){
+  setTimeout(()=>{hi(1);}, 2000);
+}
+
