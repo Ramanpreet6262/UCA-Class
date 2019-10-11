@@ -70,9 +70,12 @@ class Main extends Component {
       <div>
         <Title />
         <List />
+        <List />
       </div>
     );
   }
 }
+//Here we used components twice, this depicts reusability of components
+//But still a problem exists i.e. though list is rendered twice but content is same which will be solved by props
 
 ReactDOM.render(<Main/>, document.getElementById("root"));
