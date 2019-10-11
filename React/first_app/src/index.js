@@ -45,15 +45,48 @@ import ReactDOM from "react-dom";
 // Using Components
 
 // Remember component class name should always start with a capital letter
+// class List extends Component {
+//   render() {
+//     return (
+//       <ul>
+//         <li>Todo1</li>
+//         <li>Todo1</li>
+//         <li>Todo3</li>
+//         <li>Todo4</li>
+//       </ul>
+//     );
+//   }
+// }
+
+// class Title extends Component {
+//   render() {
+//     return "Hello";
+//   }
+// }
+
+// class Main extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Title />
+//         <List />
+//         <List />
+//       </div>
+//     );
+//   }
+// }
+//Here we used components twice, this depicts reusability of components
+//But still a problem exists i.e. though list is rendered twice but content is same which will be solved by props
+
+// ReactDOM.render(<Main/>, document.getElementById("root"));
+
+
 class List extends Component {
   render() {
     return (
-      <ul>
-        <li>Todo1</li>
-        <li>Todo1</li>
-        <li>Todo3</li>
-        <li>Todo4</li>
-      </ul>
+      <ol>
+        {this.props.tasks.map((task, index)=>{return <li value={index}>{task}</li>})}
+      </ol>
     );
   }
 }
@@ -69,13 +102,11 @@ class Main extends Component {
     return (
       <div>
         <Title />
-        <List />
-        <List />
+        <List tasks={['todo1', 'todo2', 'todo3']} />
+        <List tasks={['todo4', 'todo5', 'todo6']} />
       </div>
     );
   }
 }
-//Here we used components twice, this depicts reusability of components
-//But still a problem exists i.e. though list is rendered twice but content is same which will be solved by props
 
 ReactDOM.render(<Main/>, document.getElementById("root"));
