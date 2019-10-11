@@ -118,3 +118,82 @@ let p = new Promise((resolve, reject) => {
 p.then((x) => {console.log(x)});
 
 // .then matlab if this promise gets resolved then .then will be executed
+
+//---------------------------------------------------------------------------------------------------------
+
+
+// 10/10 Class
+
+
+// Using Promises
+let p = new Promise((resolve)=>resolve("Hello"));
+p.then((x)=>{console.log(x)});
+        
+let name = "Paras";
+
+function getUserId() {
+  return new Promise((resolve, reject) => {
+    resolve(20);
+  });
+}
+
+function getBalance(id) {
+  setTimeout(() => {
+    return new Promise((resolve, reject) => {
+      resolve(2000);
+    });
+  }, 2000);
+}
+
+getUserId(name)
+  .then(id => {
+    getBalance(id);
+  })
+  .then(balance => {
+    console.log(balance);
+  })
+  .catch(console.log("Error"));
+
+// Async Await ......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SYMBOLS IN ES6..............
+
+// Symbol -- New primitive datatype
+
+let sym = Symbol("description");
+// Rest in notes....
+// Symbols
+// Generators
+// String Literals all in notes.....
+
+
+//Sets
+
+let set=new Set(); 
+set.add(1); 
+set.add(2); 
+set.add(1); 
+set.add('false'); 
+set.add({a:1,b:2}); 
+obj1={key: "value"}; 
+set.add(obj1); 
+set.has(obj1); 
+console.log(set.size); 
+console.log(set.delete(1)); 
+console.log(set,has(5)); 
+console.log(set.has(1));
+
