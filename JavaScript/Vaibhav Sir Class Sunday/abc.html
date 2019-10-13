@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Node</title>
+        <base href= "/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.co">
+    </head>
+    <body>
+        <p>My first web project with node js <span id="first_node"> that is first_node</span></p>
+        <p>The sum of numbers is : <span id="sum"></span></p>
+        <script>
+            var x=20;
+            var y=30;
+            function addNums(){
+                let result =x+y;
+                return result;
+            }
+            var sum=addNums();
+            document.getElementById('first_node').innerHTML="UCA Project";
+            document.getElementById('sum').innerHTML=sum;
+        </script>
+    </body>
+</html>
