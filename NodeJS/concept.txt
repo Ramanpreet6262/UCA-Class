@@ -1,0 +1,26 @@
+// npm is node package manager
+
+// when we install a dependency, we get package-lock.json and node_modules
+
+// node_modules contains so many modules but we requested only 1 express
+// this happens because express is dependent on some other module and that some other module is dependent on some others
+// so it installed all those okok..
+
+// package.json is configuration file
+
+// package-lock.json contains info related to all modules in node_modules...
+
+// in package.json 
+"dependencies": {
+    "express": "^4.17.1"
+}
+
+this symbol '^' signifies that whenever someone do npm install you need to install any version of that dependency that is newer or
+same as one mentioned after "^" symbol not older than that... This will allow our code to use latest packages even if we are running it after a year 
+
+
+npm ci // ci -- continuous integration
+// BY this it will automatically read package-lock.json
+And when we use package-lock.json it will install same version of all dependencies even after 5 years
+But this will ake your code quite obsolete
+But this is used in softwares where we need the same exact version of dependency eg -- Billing Softwares.. 
