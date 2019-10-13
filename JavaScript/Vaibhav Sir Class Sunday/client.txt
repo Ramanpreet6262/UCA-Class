@@ -1,0 +1,30 @@
+Browser/ Client / Desktop app/ Mobile app
+is client who depend on others for some services or action to be done.
+
+client and server are connected through internet.
+
+Server is software that run on Hardware (S/W + H/W)
+
+Server functionality
+-> Multithreading
+-> sending data in multiple format
+-> Available all time
+-> Performance
+-> Security
+
+// browser maintain 2 data structure stack and queue
+// browser web API responsibilty of make code asynhronous not javascript.
+// this process is called eventloop
+// javascript is single thread
+
+
+
+nodejs is javascript runtime environment for writing server side scripts....
+
+npm init -- to execute npm
+
+How does our browser know in which folder is npm initialised?
+Ans-- In the environment variables, there is a path variable in which path of npm is stored where it is initialised
+
+
+package.json is a configuration file.....
