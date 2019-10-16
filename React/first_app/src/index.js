@@ -81,32 +81,34 @@ import ReactDOM from "react-dom";
 // ReactDOM.render(<Main/>, document.getElementById("root"));
 
 
-class List extends Component {
-  render() {
-    return (
-      <ol>
-        {this.props.tasks.map((task, index)=>{return <li value={index}>{task}</li>})}
-      </ol>
-    );
-  }
-}
+// class List extends Component {
+//   render() {
+//     return (
+//       <ol>
+//         {this.props.tasks.map((task, index)=>{return <li value={index}>{task}</li>})}
+//       </ol>
+//     );
+//   }
+// }
 
-class Title extends Component {
-  render() {
-    return "Hello";
-  }
-}
+// class Title extends Component {
+//   render() {
+//     return "Hello";
+//   }
+// }
 
-class Main extends Component {
-  render() {
-    return (
-      <div>
-        <Title />
-        <List tasks={['todo1', 'todo2', 'todo3']} />
-        <List tasks={['todo4', 'todo5', 'todo6']} />
-      </div>
-    );
-  }
-}
+// class Main extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Title />
+//         <List tasks={['todo1', 'todo2', 'todo3']} />
+//         <List tasks={['todo4', 'todo5', 'todo6']} />
+//       </div>
+//     );
+//   }
+// }
 
-ReactDOM.render(<Main/>, document.getElementById("root"));
+import App from './app';
+
+ReactDOM.render(<App/>, document.getElementById("root"));
