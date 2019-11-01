@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./navbar";
-import MainPage from "./mainPage";
+import Title from "./title";
+import RecentBooksList from "./recentBooksList";
 import Staff from "./staff";
 import Student from "./student";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -14,7 +15,8 @@ class App extends Component {
       <Router>
         <React.Fragment>
             <Navbar />
-            <Route exact path="/" render={ props => <MainPage /> } />
+            <Title />
+            <Route exact path="/" render={ props => <RecentBooksList /> } />
             <Route path="/staff" component={Staff} />
             <Route path="/student" component={Student} />
         </React.Fragment>
