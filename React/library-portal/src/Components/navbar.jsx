@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
 
-class Navbar extends Component {
+export default class Navbar extends Component {
   render() {
     return (
       // container is for middle one with margins on side
       // container-fluid is for complete Page 
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          {/*eslint-disable-next-line*/}
-          <a className="navbar-brand" href="#">
-            Navbar
-          </a>
+          <Link className="navbar-brand" to="/">
+            Pustakalia
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,32 +23,28 @@ class Navbar extends Component {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                {/*eslint-disable-next-line*/}
-                <a className="nav-link" href="#">
-                  Home <span className="sr-only">(current)</span>
-                </a>
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
               </li>
               <li className="nav-item">
-                {/*eslint-disable-next-line*/}
-                <a className="nav-link" href="#">
-                  Features
-                </a>
+                <Link className="nav-link" to="/staff">
+                  Staff
+                </Link>
               </li>
               <li className="nav-item">
-                {/*eslint-disable-next-line*/}
-                <a className="nav-link" href="#">
-                  Pricing
-                </a>
+                <Link className="nav-link" to="/student">
+                  Student
+                </Link>
               </li>
             </ul>
           </div>
         </nav>
-      </div>
+      </div>  
     );
   }
 }
 
-export default Navbar;

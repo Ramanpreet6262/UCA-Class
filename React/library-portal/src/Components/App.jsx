@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "./navbar";
 import MainPage from "./mainPage";
+import Staff from "./staff";
+import Student from "./student";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Actually class is a function in js...
 class App extends Component {
@@ -8,22 +11,14 @@ class App extends Component {
   // In place of it we can also use React.fragment, using this an extra div will not be rendered to our html
   render() {
     return (
-      // <React.Fragment>
-      //     <Navbar />
-      //     <MainPage />
-      // </React.Fragment>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col">
+      <Router>
+        <React.Fragment>
             <Navbar />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <MainPage />
-          </div>
-        </div>
-      </div>
+            <Route exact path="/" render={ props => <MainPage /> } />
+            <Route path="/staff" component={Staff} />
+            <Route path="/student" component={Student} />
+        </React.Fragment>
+      </Router>
     );
   }
 }
