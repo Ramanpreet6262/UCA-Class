@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Navbar from "./navbar";
 import Title from "./title";
 import RecentBooksList from "./recentBooksList";
-import Staff from "./staff";
-import Student from "./student";
+import HomePage from "./homePage";
+import AddBook from "./addBook";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Actually class is a function in js...
@@ -16,9 +16,9 @@ class App extends Component {
         <React.Fragment>
             <Navbar />
             <Title />
-            <Route exact path="/" render={ props => <RecentBooksList /> } />
-            <Route path="/staff" component={Staff} />
-            <Route path="/student" component={Student} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/books" render={ props => <RecentBooksList /> } />
+            <Route path="/addBook" component={AddBook} />
         </React.Fragment>
       </Router>
     );

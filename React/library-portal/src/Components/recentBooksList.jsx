@@ -7,23 +7,23 @@ class RecentBooksList extends Component {
     this.state = {
       bookList: [
         {
-          name: "B1",
-          author: "A1",
+          name: "The Alchemist",
+          author: "Paulo Coelho",
           version: "1.1"
         },
         {
-          name: "B2",
-          author: "A2",
+          name: "The Pilgrimage",
+          author: "Paulo Coelho",
           version: "2.6"
         },
         {
-          name: "B3",
-          author: "A3",
+          name: "The Monk Who Sold His Ferrari",
+          author: "Robin Sharma",
           version: "1.3"
         },
         {
-          name: "B4",
-          author: "A4",
+          name: "Think and Grow Rich",
+          author: "Napoleon Hill",
           version: "3.1"
         }
       ]
@@ -48,6 +48,7 @@ class RecentBooksList extends Component {
               <th>Book Name</th>
               <th>Book Author</th>
               <th>Book Version</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

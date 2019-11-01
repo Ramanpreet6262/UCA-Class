@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 export default class Navbar extends Component {
   render() {
     return (
-      // container is for middle one with margins on side
-      // container-fluid is for complete Page 
       <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <Link className="navbar-brand" to="/">
             Pustakalia
           </Link>
@@ -31,13 +29,13 @@ export default class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/staff">
-                  Staff
+                <Link className="nav-link" to="/books">
+                  Books
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/student">
-                  Student
+                <Link className="nav-link" to="/addBook">
+                  Add Book
                 </Link>
               </li>
             </ul>
