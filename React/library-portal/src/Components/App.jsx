@@ -17,6 +17,7 @@ class App extends Component {
             <Navbar />
             <Title />
             <Route exact path="/" component={HomePage} />
+            {/* <Route exact path="/"> <HomePage /> </Route> */}
             <Route path="/books" render={ props => <RecentBooksList /> } />
             <Route path="/addBook" component={AddBook} />
         </React.Fragment>
