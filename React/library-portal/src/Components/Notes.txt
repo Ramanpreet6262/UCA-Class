@@ -1,0 +1,101 @@
+Components file name should be camel case like ramanPreet
+Components class name should be pascal case like RamanPreet
+
+
+this row and col className is from bootstrap grid system 
+
+container is for middle one with margins on side
+container-fluid is for complete Page 
+
+
+React-Bootstrap
+React-Bootstrap-FormGroup.....
+
+
+If we need an api, we need to create it using node/express...
+or some other tool
+
+BUt if we don't want to code an api now.....
+We can use some online utility providing a fake rest api for front end development
+
+One such example is JSON SERVER....
+
+
+We will install it as npm install -g json-server
+
+-g flag is for global
+and --save flag for adding dependency in our project or package.json file 
+
+In latest version of npm (mine is latest too 6.9.0), u don't need to do --
+npm install -g --save json-server
+i.e. no need to write --save, npm will automatically do it for u....
+Earlier it was necessary....
+
+
+
+U need to make a file named db.json anywhere in ur pc after installing json-server
+
+Then move ur data of books u added statically in ur react code to this db.json file...
+
+
+then go to directory where db.json file is there, and run command--
+json-server --watch db.json
+
+
+
+method chaining... to be used in fetch with .then callbacks...
+
+
+We can call api from our react code or simply frontend code using XHTTP request or AJAX call
+But now more advanced or latest thing in this is Fetch API
+
+We can use Fetch to call an api in our frontend code and on behind the scenes it does ajax or http request only....
+
+
+
+
+asynchronous requests goes to browser queues which will be executed after all code is executed hierarichally...
+Jaddon sarra code likhia hoea execute hogia, then browser queues da code execute hovegaa acc to jehri req queue
+wich pehle pai hai oh pehlan chaleggi and then next one.....
+
+setTimeout() function gives us asynchronous code....
+
+this.setState() method can work as both synchronous as well as asynchronous...
+
+this.setState() is by default asynchronous in nature and always works asynchronously
+And also when react da kujj vi call ho reha hovve okok....
+jehre events hunde ne onClick yaan hoor events eh vi asynchronous hi hunde ne okok....
+
+It works synchronously when an event or method or anything is called which is of javascript but not 
+modified by react i.e. something core in that case it becomes synchronous...
+eg-- fetch api to call an api, in this case it becomes synchronous...
+
+Te jadd aapan koi event call kitta eg-- onClick te othhe setState kitta aapan ne then it is not updated in state
+as it is asynchronous par koi farak nahi painda sarra code challega then async code and then component will be rendered
+
+But panga tadd paina hai je aasin console.log(this.state) laa taa in that event method after this.setState()
+hunn this.setState asynchronous hai te eh chalia nahi so console.log purani state hi ho javeegi so to prevent this
+thing we need to make this console.log also asynchronous and one way to do that is by putting it in setTimeout method
+so this.setState browser queue wich pehlan hovegaa and issde piche eh setTimeout walla so pehlan this.setState chal javvega
+and then setTimeout due to which console.log bilkul sahi hovegga as per our requirement...
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Kamm---------------
+
+
+And on click on submit button wapis to main page with a new row added in table okok.... 
+
+
+navbar wich active sahi karna when on which page that link should be active using navlink....
+Also later on delete add book component and instead of that use a modal box for it .... okok....
+
+Also add edit book okok....
