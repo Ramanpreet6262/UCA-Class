@@ -7,31 +7,23 @@ class RecentBooksList extends Component {
   constructor() {
     super();
     this.state = {
-      bookList: [
-        {
-          name: "The Alchemist",
-          author: "Paulo Coelho",
-          version: "1.1"
-        },
-        {
-          name: "The Pilgrimage",
-          author: "Paulo Coelho",
-          version: "2.6"
-        },
-        {
-          name: "The Monk Who Sold His Ferrari",
-          author: "Robin Sharma",
-          version: "1.3"
-        },
-        {
-          name: "Think and Grow Rich",
-          author: "Napoleon Hill",
-          version: "3.1"
-        }
-      ]
+      bookList: []
     };
 
     this.deleteBook = this.deleteBook.bind(this);
+  }
+
+  componentDidMount() {
+    console.log("Component is Mounted");
+    fetch("http://localhost:3000/bookList")
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+        console.log(res);
+        console.log(JSON.stringify(res));
+        this.setState({bookList : res})
+      });
   }
 
   deleteBook(event) {

@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 export default class AddBook extends Component {
   constructor(){
     super();
+    this.state = "";
     this.addBookHandler = this.addBookHandler.bind(this);
   }
 
   addBookHandler(event){
-    const name = event.target.name.value;
-    alert(name);
+    event.preventDefault();
+    //const name = event.target.name.value;
+    alert("hi");
   }
 
   render() {
