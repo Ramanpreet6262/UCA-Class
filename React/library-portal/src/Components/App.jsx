@@ -32,7 +32,7 @@ class App extends Component {
             <Title />
             <Route exact path="/" component={HomePage} />
             {/* <Route exact path="/"> <HomePage /> </Route> */}
-            <Route path="/books" render={ props => <RecentBooksList book={this.state.book}/> } />
+            <Route path="/books" render={ props => <RecentBooksList book={(this.state.toAdd) ? this.state.book : null}/> } />
             <Route path="/addBook" render={ props => <AddBook addBook={this.addBook} /> } />
         </React.Fragment>
       </Router>

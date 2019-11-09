@@ -2,19 +2,11 @@ import React, { Component } from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AddBook from "./addBook";
 
 class RecentBooksList extends Component {
   constructor(props) {
     super(props);
-    // if(this.props.book)
-    // {
-    //   AddBook(this.props.book);
-    //   this.props.book = null;
-    // }
-    // this.props.reset_book();
-    console.log(this.props.book);
-
+    
     this.state = {
       bookList: [
         {
@@ -49,6 +41,14 @@ class RecentBooksList extends Component {
         }
       ]
     };
+
+    console.log(this.props.book);
+
+    if(this.props.book != null){
+      let arr = this.state.bookList;
+      arr.push(this.props.book);
+      this.setState({bookList: arr});
+    }
 
     this.deleteBook = this.deleteBook.bind(this);
   }
