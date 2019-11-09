@@ -109,6 +109,11 @@ import ReactDOM from "react-dom";
 //   }
 // }
 
-import App from './app';
+// import App from './app';
+// This above App was for normal states and props
 
-ReactDOM.render(<App/>, document.getElementById("root"));
+// Now for project...
+
+import Counter from './basicProject/counter';
+
+ReactDOM.render(<Counter />, document.getElementById("root"));
