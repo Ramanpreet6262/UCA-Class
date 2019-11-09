@@ -93,9 +93,7 @@ able to use it for Redirect..
 ------------------------------------------------------------------------------------------------------------------------------
 
 Kamm---------------
-
-And on click on submit button wapis to main page with a new row added in table okok.... old method
-
+State app wich hi rakhni paini hai to make sahi working
 
 then full crud app uing api .... take help from github
 iss wich add, edit & delete
@@ -110,3 +108,14 @@ topics -- jar
 jar hell
 exception handling
 inheritance
+
+
+lapi 
+charger
+bag 
+bottle
+phone
+
+15 Kamm
+
+bag saman

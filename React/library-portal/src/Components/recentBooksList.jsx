@@ -45,9 +45,11 @@ class RecentBooksList extends Component {
     console.log(this.props.book);
 
     if(this.props.book != null){
-      let arr = this.state.bookList;
-      arr.push(this.props.book);
-      this.setState({bookList: arr});
+      this.state.bookList.push(this.props.book);
+      // OR use below method but that setState should be used in a method not here okok...
+      // let arr = this.state.bookList;
+      // arr.push(this.props.book);
+      // this.setState({bookList: arr});
     }
 
     this.deleteBook = this.deleteBook.bind(this);
