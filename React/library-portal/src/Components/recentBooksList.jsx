@@ -2,29 +2,69 @@ import React, { Component } from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import AddBook from "./addBook";
 
 class RecentBooksList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    // if(this.props.book)
+    // {
+    //   AddBook(this.props.book);
+    //   this.props.book = null;
+    // }
+    // this.props.reset_book();
+    console.log(this.props.book);
+
     this.state = {
-      bookList: []
+      bookList: [
+        {
+          id: 1,
+          name: "The Alchemist",
+          author: "Paulo Coelho",
+          version: "1.1"
+        },
+        {
+          id: 2,
+          name: "The Pilgrimage",
+          author: "Paulo Coelho",
+          version: "2.6"
+        },
+        {
+          id: 3,
+          name: "The Monk Who Sold His Ferrari",
+          author: "Robin Sharma",
+          version: "1.3"
+        },
+        {
+          id: 4,
+          name: "Think and Grow Rich",
+          author: "Napoleon Hill",
+          version: "3.1"
+        },
+        {
+          id: 5,
+          name: "Kitaab",
+          author: "Kailey",
+          version: "0.2"
+        }
+      ]
     };
 
     this.deleteBook = this.deleteBook.bind(this);
   }
 
-  componentDidMount() {
-    console.log("Component is Mounted");
-    fetch("http://localhost:3000/bookList")
-      .then(res => {
-        return res.json()
-      })
-      .then(res => {
-        console.log(res);
-        console.log(JSON.stringify(res));
-        this.setState({bookList : res})
-      });
-  }
+  // componentDidMount() {
+  //   console.log("Component is Mounted");
+  //   fetch("http://localhost:3000/bookList")
+  //     .then(res => {
+  //       return res.json()
+  //     })
+  //     .then(res => {
+  //       console.log(res);
+  //       console.log(JSON.stringify(res));
+  //       this.setState({bookList : res})
+  //     });
+  // }
 
   deleteBook(event) {
     var book = this.state.bookList;
@@ -49,7 +89,7 @@ class RecentBooksList extends Component {
             {/* if arrow function returns a single thing then there is no need of return and curly braces of function..*/}
             {this.state.bookList.map((book, index) => (
               <tr>
-                <td>{index + 1}</td>
+                <td>{index+1}</td>
                 <td>{book.name}</td>
                 <td>{book.author}</td>
                 <td>{book.version}</td>

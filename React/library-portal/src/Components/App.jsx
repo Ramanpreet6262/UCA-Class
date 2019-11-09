@@ -10,6 +10,20 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends Component {
   // we can return only a single element in render method so wrap all ur elements is a final div..
   // In place of it we can also use React.fragment, using this an extra div will not be rendered to our html
+  
+  constructor(){
+    super();
+    this.state = {
+      book: {},
+      toAdd: false
+    }
+    this.addBook = this.addBook.bind(this);
+  }
+
+  addBook(data){
+      this.setState({book: data, toAdd: true});
+  }
+
   render() {
     return (
       <Router>
@@ -18,8 +32,8 @@ class App extends Component {
             <Title />
             <Route exact path="/" component={HomePage} />
             {/* <Route exact path="/"> <HomePage /> </Route> */}
-            <Route path="/books" render={ props => <RecentBooksList /> } />
-            <Route path="/addBook" component={AddBook} />
+            <Route path="/books" render={ props => <RecentBooksList book={this.state.book}/> } />
+            <Route path="/addBook" render={ props => <AddBook addBook={this.addBook} /> } />
         </React.Fragment>
       </Router>
     );

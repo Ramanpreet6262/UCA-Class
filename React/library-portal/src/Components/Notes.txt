@@ -80,8 +80,11 @@ so this.setState browser queue wich pehlan hovegaa and issde piche eh setTimeout
 and then setTimeout due to which console.log bilkul sahi hovegga as per our requirement...
 
 
+React uses Virtual DOM whereas Angular uses Shadow DOM
 
 
+React wich jaddon aapan this.setState() kar de haan, then that component is rendered again due to which we are
+able to use it for Redirect..
 
 
 
@@ -91,11 +94,19 @@ and then setTimeout due to which console.log bilkul sahi hovegga as per our requ
 
 Kamm---------------
 
+And on click on submit button wapis to main page with a new row added in table okok.... old method
 
-And on click on submit button wapis to main page with a new row added in table okok.... 
+
+then full crud app uing api .... take help from github
+iss wich add, edit & delete
 
 
-navbar wich active sahi karna when on which page that link should be active using navlink....
-Also later on delete add book component and instead of that use a modal box for it .... okok....
 
-Also add edit book okok....
+lapi
+
+kailey notes
+
+topics -- jar
+jar hell
+exception handling
+inheritance
