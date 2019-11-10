@@ -87,35 +87,13 @@ React wich jaddon aapan this.setState() kar de haan, then that component is rend
 able to use it for Redirect..
 
 
+Always remember to put main state in Parent file and not in any children as it will create a lot of mess and end up ruining the functionality...
 
 
 
 ------------------------------------------------------------------------------------------------------------------------------
 
 Kamm---------------
-State app wich hi rakhni paini hai to make sahi working
 
 then full crud app uing api .... take help from github
 iss wich add, edit & delete
-
-
-
-lapi
-
-kailey notes
-
-topics -- jar
-jar hell
-exception handling
-inheritance
-
-
-lapi 
-charger
-bag 
-bottle
-phone
-
-15 Kamm
-
-bag saman
