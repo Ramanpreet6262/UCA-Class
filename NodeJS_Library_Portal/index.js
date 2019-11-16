@@ -16,8 +16,11 @@ var id = 5;
 app.use("*", (req, res, next) => {
   console.log("Middleware is called");
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-  res.setHeader("Access-Control-Allow-Methods", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   // res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
@@ -45,16 +48,15 @@ app.delete("/delete/:id", (req, res) => {
 
   // Filter method to delete
 
-  books.bookList = books.bookList.filter((book)=>{
-    if(book.id != id)
-    {
+  books.bookList = books.bookList.filter(book => {
+    if (book.id != id) {
       return 1;
     }
     return 0;
   });
-  
-  // for each loop method to delete 
-  
+
+  // for each loop method to delete
+
   // var newBookList = [];
   // books.bookList.forEach((book) => {
   //   if(book.id != id){
@@ -72,7 +74,20 @@ app.delete("/delete/:id", (req, res) => {
   //   return null;
   // });
 
-  res.send('Deleted Successfully');
+  res.send("Deleted Successfully");
+});
+
+app.put("/editBook/:id", (req, res) => {
+  let new_book = req.body;
+  let id = req.params.id;
+  new_book.id = parseInt(id);
+  books.bookList = books.bookList.map(book => {
+    if (book.id == id) {
+      return new_book;
+    }
+    return book;
+  });
+  res.send("Book Updated");
 });
 
 const port = process.env.PORT || 8080;
