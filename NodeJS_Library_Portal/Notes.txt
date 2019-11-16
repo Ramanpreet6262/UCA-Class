@@ -1,0 +1,7 @@
+res.setHeader() is a native method of Node.js 
+And res.header() is an alias of res.set() method from Express framework.
+
+This two methods do exactly the same thing, set the headers HTTP response. 
+The only difference is res.setHeader() allows you only to set a singular header and 
+res.header() will allow you to set multiple headers. 
+So use the one fit with your needs.
