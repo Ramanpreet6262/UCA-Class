@@ -1,8 +1,8 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
+const express = require('express');
+const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 
-const books = require("./bookList");
+const books = require('./bookList');
 
 const app = express();
 
@@ -13,28 +13,28 @@ app.use(bodyParser.json());
 var id = 5;
 
 // Sample middleware
-app.use("*", (req, res, next) => {
-  console.log("Middleware is called");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+app.use('*', (req, res, next) => {
+  console.log('Middleware is called');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+    'Access-Control-Allow-Headers',
+    'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
   );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   // res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
 
-app.get("/", (req, res) => {
-  console.log(req);
-  res.send("Library Portal");
+app.get('/', (req, res) => {
+  // console.log(req);
+  res.send('Library Portal');
 });
 
-app.get("/booklist", (req, res) => {
+app.get('/booklist', (req, res) => {
   res.send(books.bookList);
 });
 
-app.post("/addBook", (req, res) => {
+app.post('/addBook', (req, res) => {
   id = id + 1;
   let book = req.body;
   book.id = id;
@@ -43,7 +43,7 @@ app.post("/addBook", (req, res) => {
   res.send(book);
 });
 
-app.delete("/delete/:id", (req, res) => {
+app.delete('/delete/:id', (req, res) => {
   let id = req.params.id;
 
   // Filter method to delete
@@ -74,10 +74,10 @@ app.delete("/delete/:id", (req, res) => {
   //   return null;
   // });
 
-  res.send("Deleted Successfully");
+  res.send('Deleted Successfully');
 });
 
-app.put("/editBook/:id", (req, res) => {
+app.put('/editBook/:id', (req, res) => {
   let new_book = req.body;
   let id = req.params.id;
   new_book.id = parseInt(id);
@@ -87,7 +87,7 @@ app.put("/editBook/:id", (req, res) => {
     }
     return book;
   });
-  res.send("Book Updated");
+  res.send('Book Updated');
 });
 
 const port = process.env.PORT || 8080;

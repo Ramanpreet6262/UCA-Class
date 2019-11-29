@@ -5,3 +5,129 @@ This two methods do exactly the same thing, set the headers HTTP response.
 The only difference is res.setHeader() allows you only to set a singular header and 
 res.header() will allow you to set multiple headers. 
 So use the one fit with your needs.
+
+
+
+MONGODB
+
+2 chahide ne i.e. client and server
+
+for server: mongod --dbpath path_of_your_db_folder
+eg -- mongod --dbpath /home/adam/github/UCA-Class/NodeJS_Library_Portal/database
+
+if error comes of address already in use... then kill that process and start again.. okok...
+
+
+for client: open a terminal and type mongo and client will start..... and you are ready to rock
+Now start using commands written below
+
+>db
+test
+// output will be db that is connected...
+> show dbs
+local  0.000GB
+// test is not being shown as it is empty....
+> use admin
+switched to db admin
+// to switch to other db...
+> db
+admin
+> use pustakalia
+switched to db pustakalia
+// created new one.... 
+> db.createCollection("users")
+{ "ok" : 1 }
+// created a collection
+> show dbs
+local       0.000GB
+pustakalia  0.000GB
+// NOw pustakalia is found here...
+
+> db.users.insertOne({name: "Ramanpreet"})
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("5de0b16481b568571be25cff")
+}
+
+> db.users.find()
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet" }
+
+> db.users.insertMany([{name: "Rakshit"}, {name: "Rishabh"}])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5de0b2e981b568571be25d00"),
+		ObjectId("5de0b2e981b568571be25d01")
+	]
+}
+
+> db.users.find()
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "Rakshit" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d01"), "name" : "Rishabh" }
+
+> db.users.find({name: "Ramanpreet"})
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet" }
+
+> db.users.find({name: "Raman"})
+// Tried to find a record which doesn't exists so got nothing in output.............
+
+> db.users.find({}, {name: 1})
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "Rakshit" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d01"), "name" : "Rishabh" }
+
+> db.users.find({name:"Rakshit"})
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "Rakshit" }
+
+> db.users.updateOne({name:"Rakshit"},{$set:{name:"RakshitRCF"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.users.find()
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "RakshitRCF" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d01"), "name" : "Rishabh" }
+
+> db.users.insertOne({name:"Jassi", class:"D1", university:"Chitkara"})
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("5de0b60981b568571be25d02")
+}
+
+> db.users.find()
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "RakshitRCF" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d01"), "name" : "Rishabh" }
+{ "_id" : ObjectId("5de0b60981b568571be25d02"), "name" : "Jassi", "class" : "D1", "university" : "Chitkara" }
+
+> db.users.updateMany({},{$set:{university:"abc"}})
+{ "acknowledged" : true, "matchedCount" : 4, "modifiedCount" : 4 }
+
+> db.users.find()
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet", "university" : "abc" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "RakshitRCF", "university" : "abc" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d01"), "name" : "Rishabh", "university" : "abc" }
+{ "_id" : ObjectId("5de0b60981b568571be25d02"), "name" : "Jassi", "class" : "D1", "university" : "abc" }
+
+> db.users.deleteOne({name: "jassi"})
+{ "acknowledged" : true, "deletedCount" : 0 }
+// Here if u mentioned a name which does not exist so deletedCount: 0
+
+> db.users.find()
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet", "university" : "abc" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "RakshitRCF", "university" : "abc" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d01"), "name" : "Rishabh", "university" : "abc" }
+{ "_id" : ObjectId("5de0b60981b568571be25d02"), "name" : "Jassi", "class" : "D1", "university" : "abc" }
+// See nothing is deleted
+
+> db.users.deleteOne({name: "Jassi"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+// Successfully deleted as deletedCount: 1
+
+> db.users.find()
+{ "_id" : ObjectId("5de0b16481b568571be25cff"), "name" : "Ramanpreet", "university" : "abc" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d00"), "name" : "RakshitRCF", "university" : "abc" }
+{ "_id" : ObjectId("5de0b2e981b568571be25d01"), "name" : "Rishabh", "university" : "abc" }
+// Record with name: "Jassi" deleted
+
+
