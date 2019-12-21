@@ -1,0 +1,62 @@
+SESSION Management --
+
+Main methods--
+1. Web Tokens
+2. Cookies
+
+To run project in debug mode---
+
+in package.json put this--
+
+"scripts": {
+    "dev": "node app.js",
+    "debug": "nodemon --inspect app.js"
+}
+
+i.e. nodemon --inspect app.js
+in terminal and this will start the debugger...
+
+Now go to chrome and in search bar type about:inspect and it will run chrome://inspect
+After it opens it will show file name on which inspect is running
+And press inspect under it and it will open chrome dev tools...
+
+And after that we can open any file using ctrl+P ...
+
+
+Now, we will use a nodejs library known as express-session for it....
+
+npm install --save express-session
+
+
+when we use app.use(bodyparser.json);
+it does is json.parse for data coming to server that is stringified already.....
+
+and when we use axios and send post request to server, it stringifies the object under the hood without
+letting us know but actually before sending the request it stringfies the data okok...
+
+
+And when we use app.use(session,{
+    key: '',
+    secret: ''
+})
+This method will create a unique cokkie under the hood....
+
+And now we go to our user add logic in backend...
+In Routes, where we get post request for add user...
+We will first validate entries and then create user in db
+And then if we get succesful response then we will put req.username in req.session.username i.e. 
+req.session.username = req.username;
+And with this step we have assigned a unique cookie to a unique user.... as username is unique for every user....
+This step will add that username in cookie....
+
+And now we will stringify this and send this cookie alongside response to frontend.....
+
+We can't decode cookie in frontend as it will reveal all our data to end user that is a breach of security...
+
+
+Now we will want to authenticate each route for cookie before executing its logic...
+So we will make a cookie validator method....
+
+We checked length of response as greater than zero in it because when we execute db.users.find() method 
+with username in it, if it finds that user in db it gives response as array with that user info
+but if it doesnot find that user in db, it sends empty response not an error so to track that thing we did this.... 
